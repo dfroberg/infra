@@ -39,10 +39,10 @@ provider "digitalocean" {
   token = "${var.api_token}"
 }
 
-resource "digitalocean_ssh_key" "default" {
-  name       = "default"
-  public_key = "${file("id_rsa.pub")}"
-}
+#resource "digitalocean_ssh_key" "default" {
+#  name       = "default"
+#  public_key = "${file("id_rsa.pub")}"
+#}
 
 resource "digitalocean_floating_ip" "edge" {
   region = "${var.region}"
@@ -63,7 +63,7 @@ resource "digitalocean_droplet" "master" {
   size               = "${var.server_size}"
   private_networking = true
   ipv6               = true
-  ssh_keys           = ["${digitalocean_ssh_key.default.id}"]
+  ssh_keys           = [589539, 741087]
 
   provisioner "file" {
     source      = "configure.sh"
